@@ -1,37 +1,23 @@
-package com.jhonathan.platformStreaming.model;
+package com.jhonathan.platformStreaming.dto;
 
-import jakarta.persistence.*;
+import com.jhonathan.platformStreaming.model.Filmes;
+import jakarta.persistence.Column;
+import org.springframework.beans.BeanUtils;
 
-import java.util.Objects;
-@Entity
-@Table(name = "tb_movie")
-public class Filmes {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class FilmesDto {
     private Long id;
     private String name;
-    @Column(name = "move_year")
     private Integer year;
     private String elenco;
     private String genero;
     private String imgUrl;
     private String score;
-
-    @Column(columnDefinition = "TEXT")
     private String description;
 
-    public Filmes(){
-    }
+    public FilmesDto(){}
 
-    public Filmes(Long id, String name, Integer year, String elenco, String genero, String imgUrl, String score, String description) {
-        this.id = id;
-        this.name = name;
-        this.year = year;
-        this.elenco = elenco;
-        this.genero = genero;
-        this.imgUrl = imgUrl;
-        this.score = score;
-        this.description = description;
+    public FilmesDto(Filmes entity){
+        BeanUtils.copyProperties(entity, this);
     }
 
     public Long getId() {
@@ -96,17 +82,5 @@ public class Filmes {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        Filmes filmes = (Filmes) o;
-        return Objects.equals(id, filmes.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(id);
     }
 }

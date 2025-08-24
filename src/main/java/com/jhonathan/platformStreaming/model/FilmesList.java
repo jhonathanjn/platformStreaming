@@ -1,9 +1,9 @@
 package com.jhonathan.platformStreaming.model;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
+@Entity
+@Table(name = "tb_movies_list")
 public class FilmesList {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

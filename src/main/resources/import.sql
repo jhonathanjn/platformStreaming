@@ -1,0 +1,1 @@
+INSERT INTO tb_movie (name, move_year, elenco, genero, img_Url, score, description) VALUES ('Interestelar', 2014, 'Matthew McConaughey, Anne Hathaway', 'Ficção Científica, Drama', 'https://image.tmdb.org/t/p/w500/interstellar.jpg', '4.8', 'Exploradores viajam por um buraco de minhoca em busca de um novo lar para a humanidade.');
