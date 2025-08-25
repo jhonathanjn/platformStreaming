@@ -15,15 +15,14 @@ public class Filmes {
     private String genero;
     private String elenco;
     private String imgUrl;
-    private String score;
+    private Integer score;
 
-    @Column(columnDefinition = "TEXT")
     private String description;
 
     public Filmes(){
     }
 
-    public Filmes(Long id, String name, Integer year, String elenco, String genero, String imgUrl, String score, String description) {
+    public Filmes(Long id, String name, Integer year, String elenco, String genero, String imgUrl, Integer score, String description) {
         this.id = id;
         this.name = name;
         this.year = year;
@@ -82,11 +81,11 @@ public class Filmes {
         this.imgUrl = imgUrl;
     }
 
-    public String getScore() {
+    public Integer getScore() {
         return score;
     }
 
-    public void setScore(String score) {
+    public void setScore(Integer score) {
         this.score = score;
     }
 

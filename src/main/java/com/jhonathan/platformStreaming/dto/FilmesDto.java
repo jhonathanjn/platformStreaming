@@ -11,7 +11,7 @@ public class FilmesDto {
     private String elenco;
     private String genero;
     private String imgUrl;
-    private String score;
+    private Integer score;
     private String description;
 
     public FilmesDto(){}
@@ -68,11 +68,11 @@ public class FilmesDto {
         this.imgUrl = imgUrl;
     }
 
-    public String getScore() {
+    public Integer getScore() {
         return score;
     }
 
-    public void setScore(String score) {
+    public void setScore(Integer score) {
         this.score = score;
     }
 

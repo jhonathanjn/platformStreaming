@@ -10,11 +10,11 @@ import java.util.Objects;
 public class BealongingPk {
 
     @ManyToOne
-    @JoinColumn(name = "tb_filmes")
+    @JoinColumn(name = "filmes_id")
     private Filmes filmes;
 
     @ManyToOne
-    @JoinColumn(name = "tb_list")
+    @JoinColumn(name = "list_id")
     private FilmesList list;
 
     public BealongingPk(){}

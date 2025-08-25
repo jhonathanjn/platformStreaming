@@ -1,39 +1,37 @@
 package com.jhonathan.platformStreaming.services;
 
-import com.jhonathan.platformStreaming.dto.FilmesDto;
 import com.jhonathan.platformStreaming.dto.FilmesListDto;
 import com.jhonathan.platformStreaming.dto.FilmesMinDto;
 import com.jhonathan.platformStreaming.model.Filmes;
 import com.jhonathan.platformStreaming.model.FilmesList;
+import com.jhonathan.platformStreaming.repository.FilmesListRepository;
 import com.jhonathan.platformStreaming.repository.FilmesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-
 @Service
-public class FilmeService {
+public class FIlmesListService {
+
+    @Autowired
+    private FilmesListRepository filmesListRepository;
 
     @Autowired
     private FilmesRepository filmesRepository;
-    @Transactional(readOnly = true)
-    public List<FilmesMinDto> findAll(){
-        List<Filmes> result = filmesRepository.findAll();
-        return result.stream().map(FilmesMinDto::new).toList();
 
+    @Transactional(readOnly = true)
+    public List<FilmesListDto> findAll(){
+        List<FilmesList> result = filmesListRepository.findAll();
+        return result.stream().map(x -> new FilmesListDto(x)).toList();
     }
 
     @Transactional(readOnly = true)
-    public FilmesDto findById(Long id){
-        Filmes result = filmesRepository.findById(id).get();
-        return new FilmesDto(result);
+    public FilmesListDto findById(Long id){
+        FilmesList result = filmesListRepository.findById(id).get();
+        return new FilmesListDto(result);
     }
 
-    @Transactional(readOnly = true)
-    public List<Filmes> findByName(String name){
-        List<Filmes> filter = filmesRepository.findByName(name);
-        return filter.stream().toList();
-    }
+
 
 }
