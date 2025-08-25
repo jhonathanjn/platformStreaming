@@ -14,7 +14,7 @@ public class BealongingPk {
     private Filmes filmes;
 
     @ManyToOne
-    @JoinColumn(name = "tb_filmes")
+    @JoinColumn(name = "tb_list")
     private FilmesList list;
 
     public BealongingPk(){}

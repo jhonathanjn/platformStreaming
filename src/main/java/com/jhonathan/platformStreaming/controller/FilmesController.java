@@ -17,7 +17,9 @@ public class FilmesController {
     private FilmeService filmeService;
     @GetMapping
     public List<FilmesMinDto> findAll(){
-        List<FilmesMinDto> result = filmeService.findAll();
-        return result;
+//        List<FilmesMinDto> result = filmeService.findAll();
+//        return result;
+
+        return filmeService.findAll();
     }
 }

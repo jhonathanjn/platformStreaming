@@ -1,12 +1,12 @@
 package com.jhonathan.platformStreaming.dto;
 
 import com.jhonathan.platformStreaming.model.Filmes;
+import com.jhonathan.platformStreaming.projection.FIlmesMinProjection;
 import jakarta.persistence.Column;
 
 public class FilmesMinDto {
     private Long id;
     private String name;
-    private String genero;
     private String imgUrl;
 
     public FilmesMinDto(){}
@@ -14,8 +14,13 @@ public class FilmesMinDto {
     public FilmesMinDto(Filmes entity){
         id = entity.getId();
         name = entity.getName();
-        genero = entity.getGenero();
         imgUrl = entity.getImgUrl();
+    }
+
+    public FilmesMinDto(FIlmesMinProjection projection){
+        id = projection.getId();
+        name = projection.getName();
+        imgUrl = projection.getImgUrl();
     }
 
     public Long getId() {
@@ -24,10 +29,6 @@ public class FilmesMinDto {
 
     public String getName() {
         return name;
-    }
-
-    public String getGenero() {
-        return genero;
     }
 
     public String getImgUrl() {

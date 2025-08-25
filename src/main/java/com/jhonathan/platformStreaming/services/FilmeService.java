@@ -17,8 +17,12 @@ public class FilmeService {
     private FilmesRepository filmesRepository;
     @Transactional(readOnly = true)
     public List<FilmesMinDto> findAll(){
-        List<Filmes> result = filmesRepository.findAll();
-        return result.stream().map(FilmesMinDto::new).toList();
+//        List<Filmes> result = filmesRepository.findAll();
+//        return result.stream().map(FilmesMinDto::new).toList();
+
+        return filmesRepository.findAll().stream()
+                .map(FilmesMinDto::new)
+                .toList();
     }
 
 }

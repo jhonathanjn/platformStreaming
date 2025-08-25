@@ -12,8 +12,8 @@ public class Filmes {
     private String name;
     @Column(name = "move_year")
     private Integer year;
-    private String elenco;
     private String genero;
+    private String elenco;
     private String imgUrl;
     private String score;
 

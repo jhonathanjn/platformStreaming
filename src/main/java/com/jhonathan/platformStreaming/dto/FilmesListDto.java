@@ -1,5 +1,6 @@
 package com.jhonathan.platformStreaming.dto;
 
+import com.jhonathan.platformStreaming.model.FilmesList;
 import jakarta.persistence.Id;
 
 public class FilmesListDto {
@@ -9,7 +10,7 @@ public class FilmesListDto {
 
     public FilmesListDto(){}
 
-    public FilmesListDto(FilmesListDto entity) {
+    public FilmesListDto(FilmesList entity) {
         id = entity.getId();
         name = entity.getName();
     }
