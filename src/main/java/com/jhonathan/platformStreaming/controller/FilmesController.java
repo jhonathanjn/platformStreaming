@@ -5,10 +5,8 @@ import com.jhonathan.platformStreaming.dto.FilmesMinDto;
 import com.jhonathan.platformStreaming.model.Filmes;
 import com.jhonathan.platformStreaming.services.FilmeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,9 +22,10 @@ public class FilmesController {
         return result;
     }
 
-    @GetMapping("/name/{name}")
-    public List<Filmes> findByName(@PathVariable String name){
-        return filmeService.findByName(name);
+    @GetMapping("/busca")
+    public ResponseEntity<List<FilmesDto>> buscarPorTrecho(@RequestParam String name){
+        List<FilmesDto> result = filmeService.findByNomeParcial(name);
+        return ResponseEntity.ok(result);
     }
 
     @GetMapping(value = "/{id}")

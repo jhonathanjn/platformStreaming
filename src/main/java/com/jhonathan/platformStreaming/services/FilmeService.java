@@ -20,7 +20,7 @@ public class FilmeService {
     @Transactional(readOnly = true)
     public List<FilmesMinDto> findAll(){
         List<Filmes> result = filmesRepository.findAll();
-        return result.stream().map(FilmesMinDto::new).toList();
+        return result.stream().map(x -> new FilmesMinDto(x)).toList();
 
     }
 
@@ -31,9 +31,11 @@ public class FilmeService {
     }
 
     @Transactional(readOnly = true)
-    public List<Filmes> findByName(String name){
-        List<Filmes> filter = filmesRepository.findByName(name);
-        return filter.stream().toList();
+    public List<FilmesDto> findByNomeParcial(String name) {
+        List<Filmes> filmes = filmesRepository.findByNameContainingIgnoreCase(name);
+        return filmes.stream().map(FilmesDto::new).toList();
     }
+
+
 
 }
